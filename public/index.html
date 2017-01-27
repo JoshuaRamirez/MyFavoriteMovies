@@ -29,3 +29,70 @@
     -->
   </body>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Example Movie Collection Application">
+    <meta name="author" content="Joshua Ramirez">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+    <title>My Favorite Movies</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  </head>
+
+  <body style="background-color: #333333">
+
+    <div id="root"></div>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  </body>
+
+  <style>
+    .addedMovie img { max-height:362px; }
+    .addedMovie { display: inline-block; }
+    .movieResult img { max-height:150px; }
+    .movieResult { display: inline-block; margin: 25px;}
+    .modal-body {
+      height:400px;
+      overflow:auto;
+    }
+    .whitesmoke {
+      background-color: #whitesmoke;
+    }
+    .navbar-margin {
+      margin-bottom: 50px;
+    }
+    .content-margin {
+      margin-top: 70px;
+    }
+    .header-margin {
+      margin-bottom: 10px;
+    }
+  </style>
+
+  /*Navbar Shift Fix*/
+  <script>
+    var fixedCls = '.navbar-fixed-top,.navbar-fixed-bottom';
+    var oldSSB = $.fn.modal.Constructor.prototype.setScrollbar;
+    $.fn.modal.Constructor.prototype.setScrollbar = function () {
+      oldSSB.apply(this);
+      if (this.bodyIsOverflowing && this.scrollbarWidth)
+          $(fixedCls).css('padding-right', this.scrollbarWidth);
+    }
+    var oldRSB = $.fn.modal.Constructor.prototype.resetScrollbar;
+    $.fn.modal.Constructor.prototype.resetScrollbar = function () {
+      oldRSB.apply(this);
+      $(fixedCls).css('padding-right', '');
+    }
+  </script>
+
+</html>

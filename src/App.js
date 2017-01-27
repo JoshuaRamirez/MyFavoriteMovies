@@ -1,18 +1,616 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+        <div className="container-fluid">
+
+          <nav className="navbar navbar-default navbar-fixed-top navbar-margin" role="navigation">
+            <div className="container">
+              <div className="navbar-header">
+                  <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span className="sr-only">Toggle navigation</span>
+                      <span className="icon-bar"></span>
+                      <span className="icon-bar"></span>
+                      <span className="icon-bar"></span>
+                  </button>
+                  <a className="navbar-brand" href="#">My Favorite Movies</a>
+                  <button type="button" className="btn btn-default navbar-btn" data-toggle="modal" data-target="#findMovie">
+                    <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                    &nbsp;Add Movie
+                  </button>
+              </div>
+              <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form className="navbar-form navbar-right" role="search">
+                  <div className="form-group">
+                    <div className="input-group">
+                      <input type="text" className="form-control" placeholder="Search My Favorites"/>
+                      <div className="input-group-addon"><span className="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </nav>
+
+          <div className="modal fade" tabIndex="-1" role="dialog" id="findMovie">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 className="modal-title header-margin">Find Movie by Title</h4>
+                  <div className="form-group">
+                    <div className="input-group">
+                      <input type="text" className="form-control" placeholder="Movie Title"/>
+                      <div className="input-group-addon">
+                        <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="modal-body whitesmoke">
+                  <div className="well clearfix">
+
+                    <div className="pull-left">
+                      <div className="movieResult thumbnail">
+                          <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3>This is the movie title</h3>
+                      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+                    </div>
+                    <br/>
+                    <button type="button" className="btn btn-primary pull-right block">Select</button>
+
+                  </div>
+                  <div className="well clearfix">
+
+                    <div className="pull-left">
+                      <div className="movieResult thumbnail">
+                          <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3>This is the movie title</h3>
+                      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+                    </div>
+                    <br/>
+                    <button type="button" className="btn btn-primary pull-right block">Select</button>
+
+                  </div>
+                  <div className="well clearfix">
+
+                    <div className="pull-left">
+                      <div className="movieResult thumbnail">
+                          <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3>This is the movie title</h3>
+                      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+                    </div>
+                    <br/>
+                    <button type="button" className="btn btn-primary pull-right block">Select</button>
+
+                  </div>
+                  <div className="well clearfix">
+
+                    <div className="pull-left">
+                      <div className="movieResult thumbnail">
+                          <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3>This is the movie title</h3>
+                      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+                    </div>
+                    <br/>
+                    <button type="button" className="btn btn-primary pull-right block">Select</button>
+
+                  </div>
+                  <div className="well clearfix">
+
+                    <div className="pull-left">
+                      <div className="movieResult thumbnail">
+                          <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3>This is the movie title</h3>
+                      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+                    </div>
+                    <br/>
+                    <button type="button" className="btn btn-primary pull-right block">Select</button>
+
+                  </div>
+                </div>
+
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row content-margin">
+
+            <div className="col-sm-6 col-xs-12">
+              <div className="panel panel-default">
+                <div className="panel-body whitesmoke">
+                <div className="row">
+
+                  <div className="col-xs-6">
+                    <div className="addedMovie thumbnail" href="#">
+                        <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
+                    </div>
+                  </div>
+
+                  <div className="col-xs-6">
+                      <form>
+                        <div className="form-group">
+                          <label htmlFor="title">Title:</label>
+                          <input readOnly type="text" value="Some Movie" className="form-control" id="title"/>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Genre:</label>
+                          <input readOnly type="text" value="Action" className="form-control" id="genre"/>
+                        </div>
+                        <div className="row">
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Year:</label>
+                              <input readOnly type="text" value="2010" className="form-control" id="year"/>
+                            </div>
+                          </div>
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Rating:</label>
+                              <input readOnly type="text" value="100" className="form-control" id="rating"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Actors:</label>
+                          <textarea readOnly type="text" className="form-control" rows="3" id="actors" value="Some Actors"></textarea>
+                        </div>
+                        <button className="btn btn-default">
+                          <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                           &nbsp;Edit
+                        </button>&nbsp;
+                        <button className="btn btn-danger">
+                          <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                          &nbsp;Delete
+                        </button>&nbsp;
+                        <button type="submit" className="btn btn-primary" disabled="disabled">
+                          <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                           &nbsp;Save
+                        </button>
+                      </form>
+                    </div>
+
+                </div>
+              </div>
+              </div>
+            </div>
+            <div className="col-sm-6 col-xs-12">
+              <div className="panel panel-default">
+                <div className="panel-body whitesmoke">
+                <div className="row">
+
+                  <div className="col-xs-6">
+                    <div className="addedMovie thumbnail" href="#">
+                        <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
+                    </div>
+                  </div>
+
+                  <div className="col-xs-6">
+                      <form>
+                        <div className="form-group">
+                          <label htmlFor="title">Title:</label>
+                          <input readOnly type="text" value="Some Movie" className="form-control" id="title"/>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Genre:</label>
+                          <input readOnly type="text" value="Action" className="form-control" id="genre"/>
+                        </div>
+                        <div className="row">
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Year:</label>
+                              <input readOnly type="text" value="2010" className="form-control" id="year"/>
+                            </div>
+                          </div>
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Rating:</label>
+                              <input readOnly type="text" value="100" className="form-control" id="rating"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Actors:</label>
+                          <textarea readOnly type="text" className="form-control" rows="3" id="actors" value="Some Actors"></textarea>
+                        </div>
+                        <button className="btn btn-default">
+                          <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                           &nbsp;Edit
+                        </button>&nbsp;
+                        <button className="btn btn-danger">
+                          <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                          &nbsp;Delete
+                        </button>&nbsp;
+                        <button type="submit" className="btn btn-primary" disabled="disabled">
+                          <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                           &nbsp;Save
+                        </button>
+                      </form>
+                    </div>
+
+                </div>
+              </div>
+              </div>
+            </div>
+            <div className="col-sm-6 col-xs-12">
+              <div className="panel panel-default">
+                <div className="panel-body whitesmoke">
+                <div className="row">
+
+                  <div className="col-xs-6">
+                    <div className="addedMovie thumbnail" href="#">
+                        <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
+                    </div>
+                  </div>
+
+                  <div className="col-xs-6">
+                      <form>
+                        <div className="form-group">
+                          <label htmlFor="title">Title:</label>
+                          <input readOnly type="text" value="Some Movie" className="form-control" id="title"/>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Genre:</label>
+                          <input readOnly type="text" value="Action" className="form-control" id="genre"/>
+                        </div>
+                        <div className="row">
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Year:</label>
+                              <input readOnly type="text" value="2010" className="form-control" id="year"/>
+                            </div>
+                          </div>
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Rating:</label>
+                              <input readOnly type="text" value="100" className="form-control" id="rating"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Actors:</label>
+                          <textarea readOnly type="text" className="form-control" rows="3" id="actors" value="Some Actors"></textarea>
+                        </div>
+                        <button className="btn btn-default">
+                          <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                           &nbsp;Edit
+                        </button>&nbsp;
+                        <button className="btn btn-danger">
+                          <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                          &nbsp;Delete
+                        </button>&nbsp;
+                        <button type="submit" className="btn btn-primary" disabled="disabled">
+                          <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                           &nbsp;Save
+                        </button>
+                      </form>
+                    </div>
+
+                </div>
+              </div>
+              </div>
+            </div>
+            <div className="col-sm-6 col-xs-12">
+              <div className="panel panel-default">
+                <div className="panel-body whitesmoke">
+                <div className="row">
+
+                  <div className="col-xs-6">
+                    <div className="addedMovie thumbnail" href="#">
+                        <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
+                    </div>
+                  </div>
+
+                  <div className="col-xs-6">
+                      <form>
+                        <div className="form-group">
+                          <label htmlFor="title">Title:</label>
+                          <input readOnly type="text" value="Some Movie" className="form-control" id="title"/>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Genre:</label>
+                          <input readOnly type="text" value="Action" className="form-control" id="genre"/>
+                        </div>
+                        <div className="row">
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Year:</label>
+                              <input readOnly type="text" value="2010" className="form-control" id="year"/>
+                            </div>
+                          </div>
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Rating:</label>
+                              <input readOnly type="text" value="100" className="form-control" id="rating"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Actors:</label>
+                          <textarea readOnly type="text" className="form-control" rows="3" id="actors" value="Some Actors"></textarea>
+                        </div>
+                        <button className="btn btn-default">
+                          <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                           &nbsp;Edit
+                        </button>&nbsp;
+                        <button className="btn btn-danger">
+                          <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                          &nbsp;Delete
+                        </button>&nbsp;
+                        <button type="submit" className="btn btn-primary" disabled="disabled">
+                          <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                           &nbsp;Save
+                        </button>
+                      </form>
+                    </div>
+
+                </div>
+              </div>
+              </div>
+            </div>
+            <div className="col-sm-6 col-xs-12">
+              <div className="panel panel-default">
+                <div className="panel-body whitesmoke">
+                <div className="row">
+
+                  <div className="col-xs-6">
+                    <div className="addedMovie thumbnail" href="#">
+                        <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
+                    </div>
+                  </div>
+
+                  <div className="col-xs-6">
+                      <form>
+                        <div className="form-group">
+                          <label htmlFor="title">Title:</label>
+                          <input readOnly type="text" value="Some Movie" className="form-control" id="title"/>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Genre:</label>
+                          <input readOnly type="text" value="Action" className="form-control" id="genre"/>
+                        </div>
+                        <div className="row">
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Year:</label>
+                              <input readOnly type="text" value="2010" className="form-control" id="year"/>
+                            </div>
+                          </div>
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Rating:</label>
+                              <input readOnly type="text" value="100" className="form-control" id="rating"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Actors:</label>
+                          <textarea readOnly type="text" className="form-control" rows="3" id="actors" value="Some Actors"></textarea>
+                        </div>
+                        <button className="btn btn-default">
+                          <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                           &nbsp;Edit
+                        </button>&nbsp;
+                        <button className="btn btn-danger">
+                          <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                          &nbsp;Delete
+                        </button>&nbsp;
+                        <button type="submit" className="btn btn-primary" disabled="disabled">
+                          <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                           &nbsp;Save
+                        </button>
+                      </form>
+                    </div>
+
+                </div>
+              </div>
+              </div>
+            </div>
+            <div className="col-sm-6 col-xs-12">
+              <div className="panel panel-default">
+                <div className="panel-body whitesmoke">
+                <div className="row">
+
+                  <div className="col-xs-6">
+                    <div className="addedMovie thumbnail" href="#">
+                        <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
+                    </div>
+                  </div>
+
+                  <div className="col-xs-6">
+                      <form>
+                        <div className="form-group">
+                          <label htmlFor="title">Title:</label>
+                          <input readOnly type="text" value="Some Movie" className="form-control" id="title"/>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Genre:</label>
+                          <input readOnly type="text" value="Action" className="form-control" id="genre"/>
+                        </div>
+                        <div className="row">
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Year:</label>
+                              <input readOnly type="text" value="2010" className="form-control" id="year"/>
+                            </div>
+                          </div>
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Rating:</label>
+                              <input readOnly type="text" value="100" className="form-control" id="rating"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Actors:</label>
+                          <textarea readOnly type="text" className="form-control" rows="3" id="actors" value="Some Actors"></textarea>
+                        </div>
+                        <button className="btn btn-default">
+                          <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                           &nbsp;Edit
+                        </button>&nbsp;
+                        <button className="btn btn-danger">
+                          <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                          &nbsp;Delete
+                        </button>&nbsp;
+                        <button type="submit" className="btn btn-primary" disabled="disabled">
+                          <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                           &nbsp;Save
+                        </button>
+                      </form>
+                    </div>
+
+                </div>
+              </div>
+              </div>
+            </div>
+            <div className="col-sm-6 col-xs-12">
+              <div className="panel panel-default">
+                <div className="panel-body whitesmoke">
+                <div className="row">
+
+                  <div className="col-xs-6">
+                    <div className="addedMovie thumbnail" href="#">
+                        <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
+                    </div>
+                  </div>
+
+                  <div className="col-xs-6">
+                      <form>
+                        <div className="form-group">
+                          <label htmlFor="title">Title:</label>
+                          <input readOnly type="text" value="Some Movie" className="form-control" id="title"/>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Genre:</label>
+                          <input readOnly type="text" value="Action" className="form-control" id="genre"/>
+                        </div>
+                        <div className="row">
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Year:</label>
+                              <input readOnly type="text" value="2010" className="form-control" id="year"/>
+                            </div>
+                          </div>
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Rating:</label>
+                              <input readOnly type="text" value="100" className="form-control" id="rating"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Actors:</label>
+                          <textarea readOnly type="text" className="form-control" rows="3" id="actors" value="Some Actors"></textarea>
+                        </div>
+                        <button className="btn btn-default">
+                          <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                           &nbsp;Edit
+                        </button>&nbsp;
+                        <button className="btn btn-danger">
+                          <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                          &nbsp;Delete
+                        </button>&nbsp;
+                        <button type="submit" className="btn btn-primary" disabled="disabled">
+                          <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                           &nbsp;Save
+                        </button>
+                      </form>
+                    </div>
+
+                </div>
+              </div>
+              </div>
+            </div>
+            <div className="col-sm-6 col-xs-12">
+              <div className="panel panel-default">
+                <div className="panel-body whitesmoke">
+                <div className="row">
+
+                  <div className="col-xs-6">
+                    <div className="addedMovie thumbnail" href="#">
+                        <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
+                    </div>
+                  </div>
+
+                  <div className="col-xs-6">
+                      <form>
+                        <div className="form-group">
+                          <label htmlFor="title">Title:</label>
+                          <input readOnly type="text" value="Some Movie" className="form-control" id="title"/>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Genre:</label>
+                          <input readOnly type="text" value="Action" className="form-control" id="genre"/>
+                        </div>
+                        <div className="row">
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Year:</label>
+                              <input readOnly type="text" value="2010" className="form-control" id="year"/>
+                            </div>
+                          </div>
+                          <div className="col-xs-6">
+                            <div className="form-group">
+                              <label htmlFor="genre">Rating:</label>
+                              <input readOnly type="text" value="100" className="form-control" id="rating"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="genre">Actors:</label>
+                          <textarea readOnly type="text" className="form-control" rows="3" id="actors" value="Some Actors"></textarea>
+                        </div>
+                        <button className="btn btn-default">
+                          <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                           &nbsp;Edit
+                        </button>&nbsp;
+                        <button className="btn btn-danger">
+                          <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                          &nbsp;Delete
+                        </button>&nbsp;
+                        <button type="submit" className="btn btn-primary" disabled="disabled">
+                          <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                           &nbsp;Save
+                        </button>
+                      </form>
+                    </div>
+
+                </div>
+              </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
