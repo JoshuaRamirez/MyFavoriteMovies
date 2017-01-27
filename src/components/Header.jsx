@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import AppBus from '../AppBus';
 
 class Header extends Component {
+  addMovieClicked(){
+    AppBus.Publish("AddMovieRequested", {});
+  }
   render() {
     return (
       <nav className="navbar navbar-default navbar-fixed-top navbar-margin" role="navigation">
@@ -13,7 +17,7 @@ class Header extends Component {
                   <span className="icon-bar"></span>
               </button>
               <a className="navbar-brand" href="#">My Favorite Movies</a>
-              <button type="button" className="btn btn-default navbar-btn" data-toggle="modal" data-target="#findMovie">
+              <button onClick={this.addMovieClicked} type="button" className="btn btn-default navbar-btn" data-toggle="modal" data-target="#findMovie">
                 <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 &nbsp;Add Movie
               </button>
