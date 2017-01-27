@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header.jsx';
-import FavoriteMovie from './components/FavoriteMovie.jsx';
+import FavoriteMovies from './components/FavoriteMovies.jsx';
 import FindMovie from './components/FindMovie.jsx';
 
 class App extends Component {
@@ -14,9 +14,7 @@ class App extends Component {
 
           <FindMovie />
 
-          <div className="row content-margin">
-            <FavoriteMovie />
-          </div>
+          <FavoriteMovies />
 
         </div>
       </div>
