@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AppBus from '../AppBus';
 import Button from 'react-bootstrap/lib/Button';
 import Modal from 'react-bootstrap/lib/Modal';
+import SearchResults from "./SearchResults"
 
 class FindMovie extends Component {
   constructor(props) {
@@ -33,86 +34,7 @@ class FindMovie extends Component {
             </div>
           </Modal.Header>
           <Modal.Body className="whitesmoke">
-            <div className="well clearfix">
-
-              <div className="pull-left">
-                <div className="movieResult thumbnail">
-                    <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
-                </div>
-              </div>
-
-              <div>
-                <h3>This is the movie title</h3>
-                "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
-              </div>
-              <br/>
-              <button type="button" className="btn btn-primary pull-right block">Select</button>
-
-            </div>
-            <div className="well clearfix">
-
-              <div className="pull-left">
-                <div className="movieResult thumbnail">
-                    <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
-                </div>
-              </div>
-
-              <div>
-                <h3>This is the movie title</h3>
-                "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
-              </div>
-              <br/>
-              <button type="button" className="btn btn-primary pull-right block">Select</button>
-
-            </div>
-            <div className="well clearfix">
-
-              <div className="pull-left">
-                <div className="movieResult thumbnail">
-                    <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
-                </div>
-              </div>
-
-              <div>
-                <h3>This is the movie title</h3>
-                "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
-              </div>
-              <br/>
-              <button type="button" className="btn btn-primary pull-right block">Select</button>
-
-            </div>
-            <div className="well clearfix">
-
-              <div className="pull-left">
-                <div className="movieResult thumbnail">
-                    <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
-                </div>
-              </div>
-
-              <div>
-                <h3>This is the movie title</h3>
-                "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
-              </div>
-              <br/>
-              <button type="button" className="btn btn-primary pull-right block">Select</button>
-
-            </div>
-            <div className="well clearfix">
-
-              <div className="pull-left">
-                <div className="movieResult thumbnail">
-                    <img className="img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMGQwNDNkMmItYWY1Yy00YTZmLWE5OTAtODU0MGZmMzQ1NDdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" role="presentation"/>
-                </div>
-              </div>
-
-              <div>
-                <h3>This is the movie title</h3>
-                "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
-              </div>
-              <br/>
-              <button type="button" className="btn btn-primary pull-right block">Select</button>
-
-            </div>
+            <SearchResults />
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Cancel</Button>

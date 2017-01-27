@@ -1,7 +1,7 @@
 .addedMovie img { max-height:362px; }
 .addedMovie { display: inline-block; }
 .movieResult img { max-height:150px; }
-.movieResult { display: inline-block; margin: 25px;}
+.movieResult { display: inline-block; margin-right: 10px;}
 .modal-body {
   height:400px;
   overflow:auto;
