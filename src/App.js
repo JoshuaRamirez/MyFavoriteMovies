@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Header from './components/Header.jsx';
 import FavoriteMovies from './components/FavoriteMovies.jsx';
 import FindMovie from './components/FindMovie.jsx';
