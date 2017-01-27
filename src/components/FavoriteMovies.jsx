@@ -14,7 +14,7 @@ class FavoriteMovies extends Component {
       <div className="row content-margin">
         {
           this.state.movies.map(function(movie){
-            return <FavoriteMovie movie={movie}/>
+            return <FavoriteMovie key={movie.imdbId} movie={movie}/>
           })
         }
       </div>
