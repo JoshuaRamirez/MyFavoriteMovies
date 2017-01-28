@@ -1,22 +1,34 @@
 import request from "superagent";
 import AppBus from "../AppBus";
 import Events from "../Events";
+import Actions from "../Actions";
 
 function MoviesDirectory() {
 
   const url = "http://www.omdbapi.com/"
 
-  const singleByTitle = function(title){
+  const singleByImdbId = function(imdbId){
     const parameters = {
-      t: title,
+      i: imdbId,
       plot: "long",
       r: "json"
     };
     const callback = function(error, response){
       if(!error){
-        AppBus.Publish(Events.Ajax.MovieDetailsFound)
+        const body = response.body;
+        const movie = {
+          "title": body.Title,
+          "year": body.Year,
+          "genre": body.Genre,
+          "actors": body.Actors,
+          "plot": body.Plot,
+          "poster": body.Poster,
+          "imdbRating": body.imdbRating,
+          "imdbId": body.imdbID
+        };
+        AppBus.Publish(Events.Ajax.MovieDetailsFound, movie)
       }
-    }
+    };
     request.get(url).query(parameters).end(callback);
   };
 
@@ -42,10 +54,8 @@ function MoviesDirectory() {
     request.get(url).query(parameters).end(callback);
   };
 
-  return {
-    singleByTitle: singleByTitle,
-    searchByTitle: searchByTitle
-  };
+  AppBus.Subscribe(singleByImdbId).To(Actions.AddFavoriteMovie);
+  AppBus.Subscribe(searchByTitle).To(Actions.FindMovies);
 
 }
 

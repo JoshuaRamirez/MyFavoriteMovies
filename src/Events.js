@@ -1,12 +1,15 @@
-export default {
+const events = {
   Ajax: {
     MovieDetailsFound: "MovieDetailsFound",
     SearchResultsFound: "SearchResultsFound"
   },
-  Gestures: {
-    AddMovieRequested: "AddMovieRequested"
-  },
   Stores: {
-    SearchResultsUpdated: "SearchResultsUpdated"
+    SearchResultsUpdated: "SearchResultsUpdated",
+    FavoriteMoviesUpdated: "FavoriteMoviesUpdated",
+    FavoriteMovieAdded: function(key){
+      return "FavoriteMovieAdded-" + key
+    }
   }
 };
+
+export default events;

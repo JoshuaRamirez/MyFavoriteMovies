@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import AppBus from '../AppBus';
+import Actions from "../Actions";
 import Button from 'react-bootstrap/lib/Button';
 import Modal from 'react-bootstrap/lib/Modal';
 import SearchResults from "./SearchResults";
-import MoviesDirectory from "../endpoints/MoviesDirectory";
 
 class FindMovie extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class FindMovie extends Component {
     this.close = this.close.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onSearchTextChanged = this.onSearchTextChanged.bind(this);
-    AppBus.Subscribe(this.open).To("AddMovieRequested");
+    AppBus.Subscribe(this.open).To(Actions.OpenFindMoviesDialog);
   }
   close() {
     this.setState({ showModal: false });
@@ -25,7 +25,8 @@ class FindMovie extends Component {
     this.setState({ showModal: true });
   }
   onSubmit(event) {
-    MoviesDirectory.searchByTitle(this.state.searchText);
+    const searchText = this.state.searchText;
+    AppBus.Publish(Actions.FindMovies, searchText);
     event.preventDefault();
   }
   onSearchTextChanged(event) {

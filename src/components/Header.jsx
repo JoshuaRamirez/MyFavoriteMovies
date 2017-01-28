@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import AppBus from '../AppBus';
+import Actions from "../Actions";
 
 class Header extends Component {
   addMovieClicked(){
-    AppBus.Publish("AddMovieRequested", {});
+    AppBus.Publish(Actions.OpenFindMoviesDialog);
   }
   render() {
     return (

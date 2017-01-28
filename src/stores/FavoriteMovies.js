@@ -1,7 +1,10 @@
-function favoriteMovies(){
+import AppBus from "../AppBus";
+import Actions from "../Actions";
+import Events from "../Events";
 
-  const data = [];
+const favoriteMovies = function(){
 
+  let data = [];
   const independenceDay = {
     "title": "Independence Day",
     "year": "1996",
@@ -12,7 +15,6 @@ function favoriteMovies(){
     "imdbRating": "6.9",
     "imdbId": "tt0116629"
   };
-
   const starWars4 = {
     "title": "Star Wars: Episode IV - A New Hope",
     "year": "1977",
@@ -23,7 +25,6 @@ function favoriteMovies(){
     "imdbRating": "8.7",
     "imdbId": "tt0076759"
   };
-
   const starWars5 = {
     "title": "Star Wars: Episode V - The Empire Strikes Back",
     "year": "1980",
@@ -35,7 +36,6 @@ function favoriteMovies(){
     "imdbRating": "8.8",
     "imdbId": "tt0080684"
   };
-
   const braveHeart = {
     "title": "Braveheart",
     "year": "1995",
@@ -46,15 +46,26 @@ function favoriteMovies(){
     "imdbRating": "8.4",
     "imdbId": "tt0112573",
   }
-
   data.push(independenceDay);
   data.push(starWars4);
   data.push(starWars5);
   data.push(braveHeart);
 
-  return {
-    data: data
+  const publish = function(movie){
+    AppBus.Publish(Events.Stores.FavoriteMoviesUpdated, data);
+    if(movie){
+      const key = movie.imdbId;
+      AppBus.Publish(Events.Stores.FavoriteMovieAdded(key), movie);
+    }
   };
+
+  const addFavorite = function(movie){
+    data.push(movie)
+    publish(movie);
+  };
+
+  AppBus.Subscribe(addFavorite).To(Events.Ajax.MovieDetailsFound);
+  AppBus.Subscribe(publish).To(Actions.LoadInitialFavoriteMovies);
 
 }
 

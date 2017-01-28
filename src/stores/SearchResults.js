@@ -1,7 +1,7 @@
 import AppBus from "../AppBus";
 import Events from "../Events";
 
-function SearchResults(){
+const SearchResults = function(){
 
   let data = [
     {
@@ -66,20 +66,16 @@ function SearchResults(){
     }
   ];
 
-  const update = function(updatedData) {
-    data = updatedData;
-    AppBus.Publish(Events.Stores.SearchResultsUpdated);
+  const publish = function(){
+    AppBus.Publish(Events.Stores.SearchResultsUpdated, data);
   };
 
-  const getData = function(){
-    return data;
+  const update = function(updatedData) {
+    data = updatedData;
+    publish();
   };
 
   AppBus.Subscribe(update).To(Events.Ajax.SearchResultsFound);
-
-  return {
-    getData: getData
-  };
 
 }
 

@@ -30,6 +30,7 @@ function Bus() {
 
         //Implementation
         var to = function (eventName) {
+          if(typeof eventName !== "string") throw "Event name is not a string. Found: " + typeof eventName;
             var subscription = makeSubscription(subscriber, eventName);
             subscriptions.push(subscription);
         };
@@ -42,6 +43,7 @@ function Bus() {
     };
 
     var subscribe = function (subscriber) {
+        if(typeof subscriber !== "function") throw "Subscriber is not a function. Found: " + typeof subscriber;
         return makeSubscriptionApi(subscriber);
     };
 
