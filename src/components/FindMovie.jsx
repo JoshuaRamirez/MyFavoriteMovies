@@ -16,7 +16,12 @@ class FindMovie extends Component {
     this.close = this.close.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onSearchTextChanged = this.onSearchTextChanged.bind(this);
+  }
+  componentWillMount() {
     AppBus.Subscribe(this.open).To(Actions.OpenFindMoviesDialog);
+  }
+  componentWillUnmount() {
+    AppBus.UnSubscribe(this.open).From(Actions.OpenFindMoviesDialog);
   }
   close() {
     this.setState({ showModal: false });

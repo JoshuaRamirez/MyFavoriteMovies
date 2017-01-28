@@ -12,13 +12,19 @@ const onImageError = function(event){
 class SearchResult extends Component {
   constructor(props){
     super(props);
-    this.state = {disableAddToFavorites: false};
+    this.state = {
+      disableAddToFavorites: this.props.alreadyAdded
+    };
     this.selected = this.selected.bind(this);
     this.disableAddToFavorites = this.disableAddToFavorites.bind(this);
   }
   componentDidMount(){
     const key = this.props.movie.imdbId;
     AppBus.Subscribe(this.disableAddToFavorites).To(Events.Stores.FavoriteMovieAdded(key));
+  }
+  componentWillUnmount(){
+    const key = this.props.movie.imdbId;
+    AppBus.UnSubscribe(this.disableAddToFavorites).From(Events.Stores.FavoriteMovieAdded(key));
   }
   disableAddToFavorites(){
     this.setState({disableAddToFavorites: true});

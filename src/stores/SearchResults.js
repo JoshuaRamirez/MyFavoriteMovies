@@ -1,4 +1,5 @@
 import AppBus from "../AppBus";
+import Actions from "../Actions";
 import Events from "../Events";
 
 const SearchResults = function(){
@@ -76,6 +77,7 @@ const SearchResults = function(){
   };
 
   AppBus.Subscribe(update).To(Events.Ajax.SearchResultsFound);
+  AppBus.Subscribe(publish).To(Actions.LoadExistingSearchResults);
 
 }
 

@@ -11,10 +11,13 @@ class FavoriteMovies extends Component {
       movies: []
     };
     this.update = this.update.bind(this);
-    AppBus.Subscribe(this.update).To(Events.Stores.FavoriteMoviesUpdated);
   }
   componentDidMount() {
+    AppBus.Subscribe(this.update).To(Events.Stores.FavoriteMoviesUpdated);
     AppBus.Publish(Actions.LoadInitialFavoriteMovies);
+  }
+  componentWillUnmount() {
+    AppBus.UnSubscribe(this.update).From(Events.Stores.FavoriteMoviesUpdated);
   }
   update(movies){
     this.setState({

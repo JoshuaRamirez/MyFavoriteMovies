@@ -28,10 +28,14 @@ function Bus() {
 
     var makeSubscriptionApi = function (subscriber) {
 
+        //TODO: Ensure unique subscriptions
+
         //Implementation
         var to = function (eventName) {
-          if(typeof eventName !== "string") throw "Event name is not a string. Found: " + typeof eventName;
             var subscription = makeSubscription(subscriber, eventName);
+            if(typeof eventName !== "string") throw {
+              message: "Event name is not a string. Found: " + typeof eventName
+            };
             subscriptions.push(subscription);
         };
 
@@ -42,10 +46,38 @@ function Bus() {
 
     };
 
+    var makeUnsubscribeApi = function (subscriber) {
+
+        var from = function (eventName) {
+          if(typeof eventName !== "string") throw {
+            message: "Event name is not a string. Found: " + typeof eventName
+          };
+          subscriptions.forEach(function(subscription, index){
+            if(subscription.EventName === eventName && subscription.Subscriber === subscriber){
+              subscriptions.splice(index, 1);
+            }
+          });
+        }
+
+        return {
+          From: from
+        };
+
+    }
+
     var subscribe = function (subscriber) {
-        if(typeof subscriber !== "function") throw "Subscriber is not a function. Found: " + typeof subscriber;
-        return makeSubscriptionApi(subscriber);
+      if(typeof subscriber !== "function") throw {
+        message: "Subscriber is not a function. Found: " + typeof subscriber
+      }
+      return makeSubscriptionApi(subscriber);
     };
+
+    var unsubscribe = function (subscriber) {
+      if(typeof subscriber !== "function") throw {
+        message: "Subscriber is not a function. Found: " + typeof subscriber
+      }
+      return makeUnsubscribeApi(subscriber);
+    }
 
     var publish = function (eventName, payload) {
         sendSubscriptions(eventName, payload);
@@ -53,7 +85,8 @@ function Bus() {
 
     return {
         Subscribe: subscribe,
-        Publish: publish
+        Publish: publish,
+        UnSubscribe: unsubscribe
     };
 
 }

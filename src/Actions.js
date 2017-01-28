@@ -3,7 +3,8 @@ const Actions = {
   RemoveFavoriteMovie: "RemoveFavoriteMovie",
   FindMovies: "FindMovies",
   OpenFindMoviesDialog: "OpenFindMoviesDialog",
-  LoadInitialFavoriteMovies: "LoadInitialFavoriteMovies"
+  LoadInitialFavoriteMovies: "LoadInitialFavoriteMovies",
+  LoadExistingSearchResults: "LoadExistingSearchResults"
 };
 
 export default Actions;
