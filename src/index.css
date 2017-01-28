@@ -7,7 +7,7 @@
   overflow:auto;
 }
 .whitesmoke {
-  background-color: #whitesmoke;
+    background-color: #f7f7f7;
 }
 .navbar-margin {
   margin-bottom: 50px;
@@ -17,4 +17,7 @@
 }
 .header-margin {
   margin-bottom: 10px;
+}
+body {
+  background-color: #333333;
 }
