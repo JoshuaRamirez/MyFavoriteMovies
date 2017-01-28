@@ -1,6 +1,9 @@
-function favoriteMovies(){
+import AppBus from "../AppBus";
+import Events from "../Events";
 
-  const data = [
+function SearchResults(){
+
+  let data = [
     {
       "title": "Independence Day",
       "year": "1996",
@@ -63,10 +66,21 @@ function favoriteMovies(){
     }
   ];
 
+  const update = function(updatedData) {
+    data = updatedData;
+    AppBus.Publish(Events.Stores.SearchResultsUpdated);
+  };
+
+  const getData = function(){
+    return data;
+  };
+
+  AppBus.Subscribe(update).To(Events.Ajax.SearchResultsFound);
+
   return {
-    data: data
+    getData: getData
   };
 
 }
 
-export default favoriteMovies();
+export default SearchResults();

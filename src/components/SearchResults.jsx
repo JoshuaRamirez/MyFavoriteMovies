@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AppBus from '../AppBus';
-import SearchResultsStore from "../stores/SearchResults"
+import Events from "../Events";
+import SearchResultsStore from "../stores/SearchResults";
 
 const onImageError = function(event){
   event.currentTarget.onerror = "";
@@ -11,12 +12,17 @@ const onImageError = function(event){
 class SearchResult extends Component {
   constructor(props) {
     super(props);
+    let data = SearchResultsStore.getData();
     this.state = {
-      searchResults: SearchResultsStore.data
+      searchResults: data
     };
+    this.store = SearchResultsStore;
+    this.storeUpdated = this.storeUpdated.bind(this);
+    AppBus.Subscribe(this.storeUpdated).To(Events.Stores.SearchResultsUpdated);
   }
-  addMovieClicked(){
-    AppBus.Publish("AddMovieRequested", {});
+  storeUpdated() {
+    let data = this.store.getData();
+    this.setState({ searchResults: data });
   }
   render() {
     return (

@@ -5,5 +5,8 @@ export default {
   },
   Gestures: {
     AddMovieRequested: "AddMovieRequested"
+  },
+  Stores: {
+    SearchResultsUpdated: "SearchResultsUpdated"
   }
 };
