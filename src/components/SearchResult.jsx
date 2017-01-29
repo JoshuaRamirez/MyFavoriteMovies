@@ -33,6 +33,10 @@ class SearchResult extends Component {
     AppBus.Publish(Actions.AddFavoriteMovie, this.props.movie.imdbId);
   }
   render() {
+    let buttonText = "Add to Favorites";
+    if(this.state.disableAddToFavorites) {
+      buttonText = "In Favorites";
+    }
     return (
       <div className="well clearfix" key={this.props.movie.imdbId}>
         <div className="pull-left">
@@ -45,7 +49,13 @@ class SearchResult extends Component {
           <div>Year: {this.props.movie.year}</div>
         </div>
         <br/>
-        <button disabled={this.state.disableAddToFavorites} onClick={this.selected} type="button" className="btn btn-primary block">Add To Favorites</button>
+        <button
+          disabled={this.state.disableAddToFavorites}
+          onClick={this.selected}
+          type="button"
+          className="btn btn-primary block">
+          {buttonText}
+        </button>
       </div>
     );
   }
