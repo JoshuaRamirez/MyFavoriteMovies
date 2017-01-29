@@ -18,6 +18,6 @@ const SearchResults = function(){
   AppBus.Subscribe(update).To(Events.Ajax.SearchResultsFound);
   AppBus.Subscribe(publish).To(Actions.LoadExistingSearchResults);
 
-}
+};
 
 export default SearchResults();

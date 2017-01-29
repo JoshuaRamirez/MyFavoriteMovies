@@ -59,7 +59,7 @@ class FavoriteMovie extends Component {
           </button>
         );
       }
-    }
+    };
     return (
       <div>
         <div className="col-sm-6 col-xs-12">

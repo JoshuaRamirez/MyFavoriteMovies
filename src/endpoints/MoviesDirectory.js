@@ -5,7 +5,7 @@ import Actions from "../Actions";
 
 function MoviesDirectory() {
 
-  const url = "http://www.omdbapi.com/"
+  const url = "http://www.omdbapi.com/";
 
   const singleByImdbId = function(imdbId){
     const parameters = {
@@ -54,7 +54,7 @@ function MoviesDirectory() {
         }
         AppBus.Publish(Events.Ajax.SearchResultsFound, data);
       }
-    }
+    };
     request.get(url).query(parameters).end(callback);
   };
 

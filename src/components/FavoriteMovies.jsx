@@ -58,12 +58,12 @@ class FavoriteMovies extends Component {
       return self.state.movies.map(function(movie){
         return <FavoriteMovie key={movie.imdbId} movie={movie}/>
       });
-    }
+    };
     const renderSome = function(){
       return self.state.filteredMovies.map(function(movie){
         return <FavoriteMovie key={movie.imdbId} movie={movie}/>
       });
-    }
+    };
     const renderAllOrSome = function(){
       if(self.state.isFiltering){
         return renderSome();

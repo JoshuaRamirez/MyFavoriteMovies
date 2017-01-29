@@ -97,13 +97,13 @@ const favoriteMovies = function(){
     });
     publish();
     updateLocalStorage();
-  }
+  };
 
   AppBus.Subscribe(addFavorite).To(Events.Ajax.MovieDetailsFound);
   AppBus.Subscribe(removeFavorite).To(Actions.RemoveFavoriteMovie);
   AppBus.Subscribe(publish).To(Actions.LoadInitialFavoriteMovies);
   AppBus.Subscribe(updateFavorite).To(Actions.UpdateFavoriteMovie);
 
-}
+};
 
 export default favoriteMovies();
