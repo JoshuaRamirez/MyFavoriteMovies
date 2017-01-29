@@ -59,13 +59,11 @@ class SearchResults extends Component {
       const key = movie.imdbId;
       const alreadyAdded = doesExist(movie);
       return (
-        <div>
-          <SearchResult
-            alreadyAdded={alreadyAdded}
-            movie={movie}
-            key={key}
-          />
-        </div>
+        <SearchResult
+          alreadyAdded={alreadyAdded}
+          movie={movie}
+          key={key}
+        />
       );
     };
     const resultsOrNoResults = function(){
