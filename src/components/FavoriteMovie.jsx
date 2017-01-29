@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import AppBus from "../AppBus";
+import Actions from "../Actions";
 
 class FavoriteMovie extends Component {
   constructor(props){
@@ -20,6 +22,7 @@ class FavoriteMovie extends Component {
   onDeleteClicked(event){
     event.preventDefault();
     this.setState({isReadOnly: true});
+    AppBus.Publish(Actions.RemoveFavoriteMovie, this.state.imdbId);
   }
   render() {
     const isReadOnly = this.state.isReadOnly;

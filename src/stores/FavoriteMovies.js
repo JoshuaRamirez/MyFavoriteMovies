@@ -59,13 +59,31 @@ const favoriteMovies = function(){
     }
   };
 
+  const removeFavorite = function(imdbId) {
+    let isFound = false;
+    let indexFound = null;
+    data.forEach(function(movie, index){
+      if(movie.imdbId === imdbId){
+        isFound = true;
+        indexFound = index;
+      }
+      if(isFound){
+        data.splice(indexFound, 1);
+        isFound = false;
+      }
+    });
+    publish();
+  };
+
   const addFavorite = function(movie){
     data.push(movie)
     publish(movie);
   };
 
   AppBus.Subscribe(addFavorite).To(Events.Ajax.MovieDetailsFound);
+  AppBus.Subscribe(removeFavorite).To(Actions.RemoveFavoriteMovie);
   AppBus.Subscribe(publish).To(Actions.LoadInitialFavoriteMovies);
+
 
 }
 
