@@ -77,7 +77,7 @@ function AppBus() {
 
     const publish = function (eventName, payload) {
       if(typeof eventName !== "string") {
-        throw new Error("Subscriber is not a string. Found: " + typeof subscriber);
+        throw new Error("eventName is not a string. Found: " + typeof eventName);
       }
       sendSubscriptions(eventName, payload);
     };
