@@ -4,7 +4,7 @@ import Actions from "../Actions";
 
 const onImageError = function(event){
   event.currentTarget.onerror = "";
-  event.currentTarget.src = "http://placehold.it/100x150?text=404";
+  event.currentTarget.src = "http://placehold.it/215x325?text=404";
   return true;
 };
 
