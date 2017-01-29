@@ -17,14 +17,14 @@ function MoviesDirectory() {
       if(!error){
         const body = response.body;
         const movie = {
-          "title": body.Title,
-          "year": body.Year,
-          "genre": body.Genre,
-          "actors": body.Actors,
-          "plot": body.Plot,
-          "poster": body.Poster,
-          "imdbRating": body.imdbRating,
-          "imdbId": body.imdbID
+          title: body.Title,
+          year: body.Year,
+          genre: body.Genre,
+          actors: body.Actors,
+          plot: body.Plot,
+          poster: body.Poster,
+          imdbRating: body.imdbRating,
+          imdbId: body.imdbID
         };
         AppBus.Publish(Events.Ajax.MovieDetailsFound, movie)
       }
@@ -40,14 +40,18 @@ function MoviesDirectory() {
     };
     const callback = function(error, response){
       if(!error){
-        const data = response.body.Search.map(function(movie){
-          return {
-            title: movie.Title,
-            year: movie.Year,
-            imdbId: movie.imdbID,
-            poster: movie.Poster
-          };
-        });
+        let data = [];
+        if(response.body && response.body.Search){
+          const searchResults = response.body.Search;
+          data = response.body.Search.map(function(movie){
+            return {
+              title: movie.Title,
+              year: movie.Year,
+              imdbId: movie.imdbID,
+              poster: movie.Poster
+            };
+          });
+        }
         AppBus.Publish(Events.Ajax.SearchResultsFound, data);
       }
     }
