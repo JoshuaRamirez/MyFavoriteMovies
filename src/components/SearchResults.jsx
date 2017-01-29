@@ -45,13 +45,15 @@ class SearchResults extends Component {
     const doesExist = function(searchResult){
       return existingFavorites.includes(searchResult.imdbId);
     };
-    const renderSearchResult = function(searchResult){
+    const renderSearchResult = function(movie){
+      const key = movie.imdbId;
+      const alreadyAdded = doesExist(movie);
       return (
         <div>
           <SearchResult
-            alreadyAdded={doesExist(searchResult)}
-            movie={searchResult}
-            key={searchResult.imdbId}
+            alreadyAdded={alreadyAdded}
+            movie={movie}
+            key={key}
           />
         </div>
       );
