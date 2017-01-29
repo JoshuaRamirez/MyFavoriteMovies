@@ -13,20 +13,23 @@ class SearchResults extends Component {
     };
     this.updateSearchResults = this.updateSearchResults.bind(this);
     this.updateExistingFavorites = this.updateExistingFavorites.bind(this);
+    this.markAsWaiting = this.markAsWaiting.bind(this);
   }
   componentDidMount(){
     AppBus.Subscribe(this.updateSearchResults).To(Events.Stores.SearchResultsUpdated);
     AppBus.Subscribe(this.updateExistingFavorites).To(Events.Stores.FavoriteMoviesUpdated);
+    AppBus.Subscribe(this.markAsWaiting).To(Actions.FindMovies);
     AppBus.Publish(Actions.LoadInitialFavoriteMovies);
     AppBus.Publish(Actions.LoadExistingSearchResults);
   }
   componentWillUnmount(){
     AppBus.UnSubscribe(this.updateSearchResults).From(Events.Stores.SearchResultsUpdated);
     AppBus.UnSubscribe(this.updateExistingFavorites).From(Events.Stores.FavoriteMoviesUpdated);
+    AppBus.UnSubscribe(this.markAsWaiting).From(Actions.FindMovies);
   }
   updateExistingFavorites(existingFavorites){
     existingFavorites = existingFavorites.map(
-      function(movie){
+      function(movie) {
         return movie.imdbId;
       }
     );
@@ -36,12 +39,19 @@ class SearchResults extends Component {
   }
   updateSearchResults(searchResults) {
     this.setState({
-      searchResults: searchResults
+      searchResults: searchResults,
+      isWaiting: false
+    });
+  }
+  markAsWaiting(){
+    this.setState({
+      isWaiting: true
     });
   }
   render() {
     const searchResults = this.state.searchResults;
     const existingFavorites = this.state.existingFavorites;
+    const isWaiting = this.state.isWaiting;
     const doesExist = function(searchResult){
       return existingFavorites.includes(searchResult.imdbId);
     };
@@ -59,6 +69,9 @@ class SearchResults extends Component {
       );
     };
     const resultsOrNoResults = function(){
+      if(isWaiting){
+        return (<h3><small>Searching...</small></h3>);
+      }
       if(searchResults.length === 0){
         return (<h3><small>0 Results</small></h3>);
       } else {
