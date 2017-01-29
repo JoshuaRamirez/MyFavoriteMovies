@@ -12,7 +12,7 @@ class Header extends Component {
     AppBus.Publish(Actions.OpenFindMoviesDialog);
   }
   filterTextChanged(event){
-    var filterText = event.target.value;
+    const filterText = event.target.value;
     AppBus.Publish(Actions.FilterFavorites, filterText);
   }
   render() {
