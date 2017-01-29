@@ -43,7 +43,7 @@ function MoviesDirectory() {
         let data = [];
         if(response.body && response.body.Search){
           const searchResults = response.body.Search;
-          data = response.body.Search.map(function(movie){
+          data = searchResults.map(function(movie){
             return {
               title: movie.Title,
               year: movie.Year,
