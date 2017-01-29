@@ -25,6 +25,7 @@ class FavoriteMovie extends Component {
   onSaveClicked(event){
     event.preventDefault();
     this.setState({isReadOnly: true});
+    AppBus.Publish(Actions.UpdateFavoriteMovie, this.state);
   }
   onDeleteClicked(event){
     event.preventDefault();
