@@ -16,6 +16,7 @@ class FavoriteMovie extends Component {
     this.onEditClicked = this.onEditClicked.bind(this);
     this.onSaveClicked = this.onSaveClicked.bind(this);
     this.onDeleteClicked = this.onDeleteClicked.bind(this);
+    this.onInputChanged = this.onInputChanged.bind(this);
   }
   onEditClicked(event){
     event.preventDefault();
@@ -29,6 +30,14 @@ class FavoriteMovie extends Component {
     event.preventDefault();
     this.setState({isReadOnly: true});
     AppBus.Publish(Actions.RemoveFavoriteMovie, this.state.imdbId);
+  }
+  onInputChanged(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value
+    });
   }
   render() {
     const isReadOnly = this.state.isReadOnly;
@@ -64,29 +73,29 @@ class FavoriteMovie extends Component {
               <div className="col-xs-7">
                 <div className="form-group">
                   <label htmlFor="title">Title:</label>
-                  <input readOnly={isReadOnly} type="text" value={this.state.title} className="form-control" id="title"/>
+                  <input onChange={this.onInputChanged} name="title" readOnly={isReadOnly} type="text" value={this.state.title} className="form-control" id="title"/>
                 </div>
                 <div className="form-group">
                   <label htmlFor="genre">Genre:</label>
-                  <input readOnly={isReadOnly} type="text" value={this.state.genre} className="form-control" id="genre"/>
+                  <input onChange={this.onInputChanged} name="genre" readOnly={isReadOnly} type="text" value={this.state.genre} className="form-control" id="genre"/>
                 </div>
                 <div className="row">
                   <div className="col-xs-6">
                     <div className="form-group">
                       <label htmlFor="genre">Year:</label>
-                      <input readOnly={isReadOnly} type="text" value={this.state.year} className="form-control" id="year"/>
+                      <input onChange={this.onInputChanged} name="year" readOnly={isReadOnly} type="text" value={this.state.year} className="form-control" id="year"/>
                     </div>
                   </div>
                   <div className="col-xs-6">
                     <div className="form-group">
                       <label htmlFor="genre">Rating:</label>
-                      <input readOnly={isReadOnly} type="text" value={this.state.imdbRating} className="form-control" id="rating"/>
+                      <input onChange={this.onInputChanged} name="imdbRating" readOnly={isReadOnly} type="text" value={this.state.imdbRating} className="form-control" id="rating"/>
                     </div>
                   </div>
                 </div>
                 <div className="form-group">
                   <label htmlFor="genre">Actors:</label>
-                  <textarea readOnly={isReadOnly} type="text" className="form-control" rows="3" id="actors" value={this.state.actors}></textarea>
+                  <textarea onChange={this.onInputChanged} name="actors" readOnly={isReadOnly} type="text" className="form-control" rows="3" id="actors" value={this.state.actors}></textarea>
                 </div>
                 <form>
                   {renderSaveOrEditButton()}&nbsp;
