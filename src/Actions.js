@@ -5,7 +5,8 @@ const Actions = {
   OpenFindMoviesDialog: "OpenFindMoviesDialog",
   LoadInitialFavoriteMovies: "LoadInitialFavoriteMovies",
   LoadExistingSearchResults: "LoadExistingSearchResults",
-  UpdateFavoriteMovie: "UpdateFavoriteMovie"
+  UpdateFavoriteMovie: "UpdateFavoriteMovie",
+  FilterFavorites: "FilterFavorites"
 };
 
 export default Actions;

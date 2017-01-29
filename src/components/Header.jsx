@@ -3,8 +3,17 @@ import AppBus from '../AppBus';
 import Actions from "../Actions";
 
 class Header extends Component {
+  constructor(props){
+    super(props);
+    this.addMovieClicked = this.addMovieClicked.bind(this);
+    this.filterTextChanged = this.filterTextChanged.bind(this);
+  }
   addMovieClicked(){
     AppBus.Publish(Actions.OpenFindMoviesDialog);
+  }
+  filterTextChanged(event){
+    var filterText = event.target.value;
+    AppBus.Publish(Actions.FilterFavorites, filterText);
   }
   render() {
     return (
@@ -27,7 +36,7 @@ class Header extends Component {
             <form className="navbar-form navbar-right" role="search">
               <div className="form-group">
                 <div className="input-group">
-                  <input type="text" className="form-control" placeholder="Search My Favorites"/>
+                  <input onChange={this.filterTextChanged} type="text" className="form-control" placeholder="Search My Favorites"/>
                   <div className="input-group-addon"><span className="glyphicon glyphicon-search" aria-hidden="true"></span></div>
                 </div>
               </div>
