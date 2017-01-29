@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import AppBus from "../AppBus";
 import Actions from "../Actions";
 
+const onImageError = function(event){
+  event.currentTarget.onerror = "";
+  event.currentTarget.src = "http://placehold.it/100x150?text=404";
+  return true;
+};
+
 class FavoriteMovie extends Component {
   constructor(props){
     super(props);
@@ -50,12 +56,12 @@ class FavoriteMovie extends Component {
           <div className="panel panel-default">
             <div className="panel-body whitesmoke">
             <div className="row">
-              <div className="col-xs-6">
+              <div className="col-xs-5">
                 <div className="addedMovie thumbnail" href="#">
-                    <img className="img-responsive" src={this.state.poster} role="presentation"/>
+                    <img className="img-responsive addedMovie" src={this.state.poster} role="presentation" onError={onImageError.bind(this)}/>
                 </div>
               </div>
-              <div className="col-xs-6">
+              <div className="col-xs-7">
                 <div className="form-group">
                   <label htmlFor="title">Title:</label>
                   <input readOnly={isReadOnly} type="text" value={this.state.title} className="form-control" id="title"/>
