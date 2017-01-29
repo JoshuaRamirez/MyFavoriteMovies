@@ -33,8 +33,9 @@ function Bus() {
         //Implementation
         var to = function (eventName) {
             var subscription = makeSubscription(subscriber, eventName);
-            if(typeof eventName !== "string")
+            if(typeof eventName !== "string"){
               throw new Error("Event name is not a string. Found: " + typeof eventName);
+            }
             subscriptions.push(subscription);
         };
 
@@ -48,8 +49,9 @@ function Bus() {
     var makeUnsubscribeApi = function (subscriber) {
 
         var from = function (eventName) {
-          if(typeof eventName !== "string")
+          if(typeof eventName !== "string"){
             throw new Error("Event name is not a string. Found: " + typeof eventName);
+          }
           subscriptions.forEach(function(subscription, index){
             if(subscription.EventName === eventName && subscription.Subscriber === subscriber){
               subscriptions.splice(index, 1);
@@ -64,19 +66,24 @@ function Bus() {
     }
 
     var subscribe = function (subscriber) {
-      if(typeof subscriber !== "function")
+      if(typeof subscriber !== "function"){
         throw new Error("Subscriber is not a function. Found: " + typeof subscriber);
+      }
       return makeSubscriptionApi(subscriber);
     };
 
     var unsubscribe = function (subscriber) {
-      if(typeof subscriber !== "function")
+      if(typeof subscriber !== "function"){
         throw new Error("Subscriber is not a function. Found: " + typeof subscriber);
+      }
       return makeUnsubscribeApi(subscriber);
     }
 
     var publish = function (eventName, payload) {
-        sendSubscriptions(eventName, payload);
+      if(typeof eventName !== "string") {
+        throw new Error("Subscriber is not a string. Found: " + typeof subscriber);
+      }
+      sendSubscriptions(eventName, payload);
     };
 
     return {
