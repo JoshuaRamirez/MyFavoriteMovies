@@ -6,9 +6,7 @@ const events = {
   Stores: {
     SearchResultsUpdated: "SearchResultsUpdated",
     FavoriteMoviesUpdated: "FavoriteMoviesUpdated",
-    FavoriteMovieAdded: function(key){
-      return "FavoriteMovieAdded-" + key
-    }
+    FavoriteMovieAdded: (key) => "FavoriteMovieAdded-" + key
   }
 };
 

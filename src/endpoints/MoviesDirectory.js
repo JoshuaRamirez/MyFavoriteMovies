@@ -26,7 +26,7 @@ function MoviesDirectory() {
           imdbRating: body.imdbRating,
           imdbId: body.imdbID
         };
-        AppBus.Publish(Events.Ajax.MovieDetailsFound, movie)
+        AppBus.Publish(Events.Ajax.MovieDetailsFound, movie);
       }
     };
     request.get(url).query(parameters).end(callback);

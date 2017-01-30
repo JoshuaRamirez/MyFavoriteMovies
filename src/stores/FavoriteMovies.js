@@ -50,7 +50,7 @@ const favoriteMovies = function(){
       "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BNTMyNGE1ODQtYTNiNS00ZTUyLThhZjktMTgyOGZkZThlYTc3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "imdbRating": "8.4",
       "imdbId": "tt0112573",
-    }
+    };
     data.push(independenceDay);
     data.push(starWars4);
     data.push(starWars5);
@@ -84,7 +84,7 @@ const favoriteMovies = function(){
   };
 
   const addFavorite = function(movie){
-    data.push(movie)
+    data.push(movie);
     publish(movie);
     updateLocalStorage();
   };

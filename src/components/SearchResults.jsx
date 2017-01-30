@@ -78,9 +78,7 @@ class SearchResults extends Component {
     };
     return (
       <div>
-        {
-          resultsOrNoResults()
-        }
+        {resultsOrNoResults()}
       </div>
     );
   }
